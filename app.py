@@ -370,7 +370,7 @@ selected_day_img = st.selectbox("Select Day", ["Day 1", "Day 2", "Day 3", "Day 4
 img_path = f"sports_images/{selected_day_img.lower().replace(' ', '_')}.jpg"
 if os.path.exists(img_path):
     img = Image.open(img_path)
-    st.image(img, caption=f"{selected_day_img} Highlights", use_column_width=True)
+    st.image(img, caption=f"{selected_day_img} Highlights", use_container_width=True)
 else:
     st.warning("Image not found for the selected day.")
 
@@ -385,7 +385,7 @@ if uploaded_file is not None:
     
     with col1:
         st.subheader("Original Image")
-        st.image(img, caption="Original", use_column_width=True)
+        st.image(img, caption="Original", use_container_width=True)
     
     with col2:
         st.subheader("Processed Image")
@@ -402,7 +402,7 @@ if uploaded_file is not None:
         elif processing_option == "Edge Enhance":
             processed_img = img.filter(ImageFilter.EDGE_ENHANCE)
         
-        st.image(processed_img, caption=processing_option, use_column_width=True)
+        st.image(processed_img, caption=processing_option, use_container_width=True)
 
 # Footer
 st.markdown("---")
